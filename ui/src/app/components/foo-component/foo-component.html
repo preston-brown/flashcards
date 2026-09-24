@@ -1,0 +1,13 @@
+<div class="page">
+    <div class="card">
+        @if (cards() === null) {
+            Loading...
+        } @else if (card(); as currentCard) {
+            @if (frontFacing) {
+                {{ currentCard.front }}
+            } @else {
+                {{ currentCard.back }}
+            }
+        }
+    </div>
+</div>

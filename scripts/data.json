@@ -1,0 +1,13 @@
+[
+    {
+        "id": "1",
+        "front": "hello",
+        "back": "goodbye",
+        "tags": [
+            {
+                "key": "",
+                "value": ""
+            }
+        ]
+    }
+]
