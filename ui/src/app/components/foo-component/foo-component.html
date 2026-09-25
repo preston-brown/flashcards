@@ -1,13 +1,15 @@
 <div class="page">
     <div class="card">
-        @if (cards() === null) {
+        @if (fetchedCards() === null) {
             Loading...
-        } @else if (card(); as currentCard) {
+        } @else if (currentCard(); as card) {
             @if (frontFacing) {
-                {{ currentCard.front }}
+                {{ card.front }}
             } @else {
-                {{ currentCard.back }}
+                {{ card.back }}
             }
+        } @else {
+            All done!
         }
     </div>
 </div>

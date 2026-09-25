@@ -1,42 +1,41 @@
-import { Component, computed, HostListener, inject, signal } from '@angular/core';
+import { Component, computed, effect, HostListener, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { CardService } from '../../services/card-service';
+import { Card } from '../../models/card';
 
 @Component({
-  imports: [],
   selector: 'app-foo-component',
   styleUrl: './foo-component.css',
   templateUrl: './foo-component.html',
 })
 export class FooComponent {
   private readonly cardService = inject(CardService);
-  readonly cards = toSignal(this.cardService.getCards(), {
-    initialValue: null,
-  })
-  readonly cardPosition = signal(0);
+  readonly fetchedCards = toSignal(this.cardService.getCards(), {
+    initialValue: [],
+  });
+  readonly untestedCards = signal<Card[]>([]);
   frontFacing = true;
 
-  readonly card = computed(() => {
-    const cards = this.cards();
-    return cards?.[this.cardPosition()]
-  })
+  readonly currentCard = computed(() => {
+    return this.untestedCards()[0];
+  });
 
-  nextCard() {
-    const cards = this.cards();
-    if (cards && this.cardPosition() < cards.length) {
-      this.cardPosition.update(x => x + 1);
-      this.frontFacing = true;
-    }
+  constructor() {
+    effect(() => {
+      const fetchedCards = this.fetchedCards();
+      if (fetchedCards?.length) {
+        this.untestedCards.set([...fetchedCards]);
+      }
+    });
   }
 
   @HostListener('window:keydown.space', ['$event'])
   handleSpaceKey(event: Event): void {
     const keyboardEvent = event as KeyboardEvent;
     keyboardEvent.preventDefault();
-
     if (!keyboardEvent.repeat) {
-      this.frontFacing = !this.frontFacing
+      this.frontFacing = !this.frontFacing;
     }
   }
 
@@ -44,9 +43,8 @@ export class FooComponent {
   handlePassKey(event: Event): void {
     const keyboardEvent = event as KeyboardEvent;
     keyboardEvent.preventDefault();
-
     if (!keyboardEvent.repeat) {
-      this.nextCard();
+      this.advanceCard(false);
     }
   }
 
@@ -54,9 +52,22 @@ export class FooComponent {
   handleFailKey(event: Event): void {
     const keyboardEvent = event as KeyboardEvent;
     keyboardEvent.preventDefault();
-
     if (!keyboardEvent.repeat) {
-      this.nextCard();
+      this.advanceCard(true);
     }
+  }
+
+  private advanceCard(retainCurrentCard: boolean) {
+    const cards = this.untestedCards();
+    if (!cards.length) {
+      return;
+    }
+    const [current, ...rest] = this.untestedCards();
+    if (retainCurrentCard) {
+      this.untestedCards.set([...rest, current]);
+    } else {
+      this.untestedCards.set([...rest]);
+    }
+    this.frontFacing = true;
   }
 }

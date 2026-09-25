@@ -1,13 +1,421 @@
 [
-    {
-        "id": "1",
-        "front": "hello",
-        "back": "goodbye",
-        "tags": [
-            {
-                "key": "",
-                "value": ""
-            }
-        ]
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "nomen",
+      "genitive": "nominis",
+      "declension": 3,
+      "gender": "n",
+      "definition": "name"
     }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "praenomen",
+      "genitive": "praenominis",
+      "declension": 3,
+      "gender": "n",
+      "definition": "first name"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "cognomen",
+      "genitive": "cognominis",
+      "declension": 3,
+      "gender": "n",
+      "definition": "surname"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "avunculus",
+      "genitive": "avunculi",
+      "declension": 2,
+      "gender": "m",
+      "definition": "uncle"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "miles",
+      "genitive": "militis",
+      "declension": 3,
+      "gender": "m",
+      "definition": "soldier"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "gladius",
+      "genitive": "gladii",
+      "declension": 2,
+      "gender": "m",
+      "definition": "sword"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "pilum",
+      "genitive": "pili",
+      "declension": 2,
+      "gender": "n",
+      "definition": "javelin (short)"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "scutum",
+      "genitive": "scuti",
+      "declension": 2,
+      "gender": "n",
+      "definition": "shield"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "hasta",
+      "genitive": "hastae",
+      "declension": 1,
+      "gender": "f",
+      "definition": "spear (long)"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "arma",
+      "genitive": "armorum",
+      "declension": 2,
+      "gender": "n",
+      "definition": "weapons"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "pugnus",
+      "genitive": "pugni",
+      "declension": 2,
+      "gender": "m",
+      "definition": "fist"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "pedes",
+      "genitive": "peditis",
+      "declension": 3,
+      "gender": "m",
+      "definition": "foot soldier"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "eques",
+      "genitive": "equitis",
+      "declension": 3,
+      "gender": "m",
+      "definition": "horseman, rider"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "pars",
+      "genitive": "partis",
+      "declension": 3,
+      "gender": "f",
+      "definition": "part"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "patria",
+      "genitive": "patriae",
+      "declension": 1,
+      "gender": "f",
+      "definition": "native land"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "hostis",
+      "genitive": "hostis",
+      "declension": 3,
+      "gender": "m",
+      "definition": "enemy"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "bellum",
+      "genitive": "belli",
+      "declension": 2,
+      "gender": "n",
+      "definition": "war"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "exercitus",
+      "genitive": "exercitus",
+      "declension": 4,
+      "gender": "m",
+      "definition": "army"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "dux",
+      "genitive": "ducis",
+      "declension": 3,
+      "gender": "m",
+      "definition": "leader"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "sagitta",
+      "genitive": "sagittae",
+      "declension": 1,
+      "gender": "f",
+      "definition": "arrow"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "arcus",
+      "genitive": "arcus",
+      "declension": 4,
+      "gender": "m",
+      "definition": "bow"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "castra",
+      "genitive": "castrorum",
+      "declension": 2,
+      "gender": "n",
+      "definition": "camp"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "vallum",
+      "genitive": "valli",
+      "declension": 2,
+      "gender": "n",
+      "definition": "wall, rampart"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "fossa",
+      "genitive": "fossae",
+      "declension": 1,
+      "gender": "f",
+      "definition": "ditch, trench"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "equitatus",
+      "genitive": "equitatus",
+      "declension": 4,
+      "gender": "m",
+      "definition": "cavalry"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "impetus",
+      "genitive": "impetus",
+      "declension": 4,
+      "gender": "m",
+      "definition": "attack"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "metus",
+      "genitive": "metus",
+      "declension": 4,
+      "gender": "m",
+      "definition": "fear"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "noun",
+    "details": {
+      "nominative": "passus",
+      "genitive": "passus",
+      "declension": 4,
+      "gender": "m",
+      "definition": "step,pace"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "armatus",
+      "feminine": "armata",
+      "neuter": "armatum",
+      "declension": 1,
+      "definition": "armed"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "tristis",
+      "feminine": "tristis",
+      "neuter": "triste",
+      "declension": 3,
+      "definition": "sad, sorrowful"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "brevis",
+      "feminine": "brevis",
+      "neuter": "breve",
+      "declension": 3,
+      "definition": "short, little"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "gravis",
+      "feminine": "gravis",
+      "neuter": "grave",
+      "declension": 3,
+      "definition": "heavy"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "levis",
+      "feminine": "levis",
+      "neuter": "leve",
+      "declension": 3,
+      "definition": "light, thin"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "barbarus",
+      "feminine": "barbara",
+      "neuter": "barbarum",
+      "declension": 1,
+      "definition": "foreign, savage"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "altus",
+      "feminine": "alta",
+      "neuter": "altum",
+      "declension": 1,
+      "definition": "high, deep"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "latus",
+      "feminine": "lata",
+      "neuter": "latum",
+      "declension": 1,
+      "definition": "wide, broad"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "fortis",
+      "feminine": "fortis",
+      "neuter": "forte",
+      "declension": 3,
+      "definition": "strong, brave"
+    }
+  },
+  {
+    "chapter": 12,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "vester",
+      "feminine": "vestra",
+      "neuter": "vestrum",
+      "declension": 1,
+      "definition": "your"
+    }
+  }
 ]
+
