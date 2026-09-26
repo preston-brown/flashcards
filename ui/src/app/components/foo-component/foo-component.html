@@ -1,15 +1,27 @@
 <div class="page">
+  @if (fetchedCards() === undefined) {
+    Loading...
+  } @else {
     <div class="card">
-        @if (fetchedCards() === null) {
-            Loading...
-        } @else if (currentCard(); as card) {
-            @if (frontFacing) {
-                {{ card.front }}
-            } @else {
-                {{ card.back }}
-            }
+      @if (currentCard(); as card) {
+        @if (frontFacing) {
+          <div class="card-content">{{ card.front }}</div>
         } @else {
-            All done!
+          <div class="card-content">{{ card.back }}</div>
         }
+      } @else {
+        All done!
+      }
     </div>
+    <dl class="progress" aria-label="Review progress">
+      <div class="progress-item">
+        <dt>Completed</dt>
+        <dd>{{ completedCards }} / {{ totalCards() }}</dd>
+      </div>
+      <div class="progress-item progress-item--errors">
+        <dt>Errors</dt>
+        <dd>{{ errors }}</dd>
+      </div>
+    </dl>
+  }
 </div>

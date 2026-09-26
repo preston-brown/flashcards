@@ -14,6 +14,13 @@ type AdjectiveDetails = {
   definition: string;
 };
 
+type VerbDetails = {
+  part1: string;
+  part2: string;
+  conjugation: number;
+  definition: string;
+};
+
 export type Word =
   | {
       chapter: number;
@@ -24,23 +31,29 @@ export type Word =
       chapter: number;
       partOfSpeech: "adjective";
       details: AdjectiveDetails;
+    }
+  | {
+      chapter: number;
+      partOfSpeech: "verb";
+      details: VerbDetails;
     };
 
 type Card = {
   id: string;
   front: string;
   back: string;
-  partOfSpeech: "noun" | "adjective";
+  partOfSpeech: "noun" | "adjective" | "verb";
 };
+
+const conjugationNames = [
+  "", "1st", "2nd", "3rd", "4th"
+]
 
 export const wordToCard = (word: Word): Card => {
   switch (word.partOfSpeech) {
     case "noun": {
-      const forms = [
-        word.details.nominative,
-        word.details.genitive
-      ]
-      const front = forms[Math.floor(Math.random() * forms.length)]
+      const forms = [word.details.nominative, word.details.genitive];
+      const front = forms[Math.floor(Math.random() * forms.length)];
       return {
         id: crypto.randomUUID(),
         partOfSpeech: "noun",
@@ -62,7 +75,7 @@ export const wordToCard = (word: Word): Card => {
       const uniqueForms = forms.filter(
         (form, index) => index === 0 || form !== forms[index - 1],
       );
-      const front = uniqueForms[Math.floor(Math.random() * uniqueForms.length)]
+      const front = uniqueForms[Math.floor(Math.random() * uniqueForms.length)];
       const declension = word.details.declension === 1 ? "1st/2nd" : "3rd";
       return {
         id: crypto.randomUUID(),
@@ -73,6 +86,19 @@ export const wordToCard = (word: Word): Card => {
           "",
           `${uniqueForms.join(", ")} ${declension}`,
         ].join("\n"),
+      };
+    }
+
+    case "verb": {
+      const forms = [word.details.part1, word.details.part2];
+      const front = forms[Math.floor(Math.random() * forms.length)];
+      const foo = forms.join(", ")
+      const conjugation = conjugationNames[word.details.conjugation]
+      return {
+        id: crypto.randomUUID(),
+        partOfSpeech: "verb",
+        front: front,
+        back: [word.details.definition, "", `${foo} ${conjugation}`].join("\n"),
       };
     }
   }

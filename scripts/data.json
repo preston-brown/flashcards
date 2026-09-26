@@ -416,6 +416,95 @@
       "declension": 1,
       "definition": "your"
     }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "pugno",
+      "part2": "pugnare",
+      "conjugation": 1,
+      "definition": "to fight"
+    }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "incolo",
+      "part2": "incolere",
+      "conjugation": 3,
+      "definition": "to inhabit"
+    }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "divido",
+      "part2": "dividere",
+      "conjugation": 3,
+      "definition": "to divide"
+    }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "oppugno",
+      "part2": "oppugnare",
+      "conjugation": 1,
+      "definition": "to attack"
+    }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "metuo",
+      "part2": "metuere",
+      "conjugation": 3,
+      "definition": "to fear"
+    }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "defendo",
+      "part2": "defendere",
+      "conjugation": 3,
+      "definition": "to defend"
+    }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "iacio",
+      "part2": "iacere",
+      "conjugation": 3,
+      "definition": "to throw"
+    }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "expugno",
+      "part2": "expugnare",
+      "conjugation": 1,
+      "definition": "to storm, conquer"
+    }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "fugio",
+      "part2": "fugere",
+      "conjugation": 3,
+      "definition": "to run away, flee"
+    }
   }
 ]
-

@@ -11,11 +11,12 @@ import { Card } from '../../models/card';
 })
 export class FooComponent {
   private readonly cardService = inject(CardService);
-  readonly fetchedCards = toSignal(this.cardService.getCards(), {
-    initialValue: [],
-  });
+  readonly fetchedCards = toSignal(this.cardService.getCards());
   readonly untestedCards = signal<Card[]>([]);
   frontFacing = true;
+  completedCards = 0;
+  errors = 0;
+  totalCards = signal<number>(0)
 
   readonly currentCard = computed(() => {
     return this.untestedCards()[0];
@@ -26,6 +27,7 @@ export class FooComponent {
       const fetchedCards = this.fetchedCards();
       if (fetchedCards?.length) {
         this.untestedCards.set([...fetchedCards]);
+        this.totalCards.set(fetchedCards.length)
       }
     });
   }
@@ -45,6 +47,7 @@ export class FooComponent {
     keyboardEvent.preventDefault();
     if (!keyboardEvent.repeat) {
       this.advanceCard(false);
+      this.completedCards += 1;
     }
   }
 
@@ -54,6 +57,7 @@ export class FooComponent {
     keyboardEvent.preventDefault();
     if (!keyboardEvent.repeat) {
       this.advanceCard(true);
+      this.errors += 1;
     }
   }
 
