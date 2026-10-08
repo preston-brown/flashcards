@@ -21,6 +21,12 @@ type VerbDetails = {
   definition: string;
 };
 
+type PrepositionDetails = {
+  word: string;
+  objectCase: string;
+  definition: string;
+};
+
 export type Word =
   | {
       chapter: number;
@@ -36,13 +42,18 @@ export type Word =
       chapter: number;
       partOfSpeech: "verb";
       details: VerbDetails;
-    };
+    }
+  | {
+      chapter: number;
+      partOfSpeech: "preposition";
+      details: PrepositionDetails;
+    }
 
 type Card = {
   id: string;
   front: string;
   back: string;
-  partOfSpeech: "noun" | "adjective" | "verb";
+  partOfSpeech: "noun" | "adjective" | "verb" | "preposition";
 };
 
 const conjugationNames = [
@@ -51,21 +62,6 @@ const conjugationNames = [
 
 export const wordToCard = (word: Word): Card => {
   switch (word.partOfSpeech) {
-    case "noun": {
-      const forms = [word.details.nominative, word.details.genitive];
-      const front = forms[Math.floor(Math.random() * forms.length)];
-      return {
-        id: crypto.randomUUID(),
-        partOfSpeech: "noun",
-        front: front,
-        back: [
-          word.details.definition,
-          "",
-          `${word.details.nominative}, ${word.details.genitive} ${word.details.declension}${word.details.gender}`,
-        ].join("\n"),
-      };
-    }
-
     case "adjective": {
       const forms = [
         word.details.masculine,
@@ -88,6 +84,36 @@ export const wordToCard = (word: Word): Card => {
         ].join("\n"),
       };
     }
+
+    case "noun": {
+      const forms = [word.details.nominative, word.details.genitive];
+      const front = forms[Math.floor(Math.random() * forms.length)];
+      return {
+        id: crypto.randomUUID(),
+        partOfSpeech: "noun",
+        front: front,
+        back: [
+          word.details.definition,
+          "",
+          `${word.details.nominative}, ${word.details.genitive} ${word.details.declension}${word.details.gender}`,
+        ].join("\n"),
+      };
+    }
+
+    case "preposition": {
+      const front = word.details.word;
+      return {
+        id: crypto.randomUUID(),
+        partOfSpeech: "preposition",
+        front: front,
+        back: [
+          `${word.details.word} + ${word.details.objectCase}`,
+          "",
+          word.details.definition,
+        ].join("\n"),
+      };
+    }
+
 
     case "verb": {
       const forms = [word.details.part1, word.details.part2];

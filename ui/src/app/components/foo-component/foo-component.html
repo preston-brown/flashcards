@@ -1,7 +1,22 @@
 <div class="page">
-  @if (fetchedCards() === undefined) {
+  @if (cardsResource.isLoading()) {
     Loading...
+  } @else if (cardsResource.error()) {
+    Error loading cards.
   } @else {
+    <div class="part-of-speech">
+      <label for="part-of-speech-select">Part of speech</label>
+      <select
+        id="part-of-speech-select"
+        [value]="selectedPartOfSpeech()"
+        (change)="onPartOfSpeechChange($event)"
+      >
+        <option value=""></option>
+        @for (part of partsOfSpeech(); track part) {
+          <option [value]="part" [selected]="part === selectedPartOfSpeech()">{{ part }}</option>
+        }
+      </select>
+    </div>
     <div class="card">
       @if (currentCard(); as card) {
         @if (frontFacing) {

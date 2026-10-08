@@ -1,5 +1,5 @@
 import { Component, computed, effect, HostListener, inject, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { rxResource, toSignal } from '@angular/core/rxjs-interop';
 
 import { CardService } from '../../services/card-service';
 import { Card } from '../../models/card';
@@ -11,30 +11,48 @@ import { Card } from '../../models/card';
 })
 export class FooComponent {
   private readonly cardService = inject(CardService);
-  readonly fetchedCards = toSignal(this.cardService.getCards());
+  readonly partsOfSpeech = toSignal(this.cardService.getPartsOfSpeech(), {
+    initialValue: [] as string[],
+  });
+  readonly selectedPartOfSpeech = signal<string>('');
+  readonly cardsResource = rxResource({
+    params: () => this.selectedPartOfSpeech(),
+    stream: ({ params }) => this.cardService.getCards(params),
+  });
   readonly untestedCards = signal<Card[]>([]);
-  frontFacing = true;
-  completedCards = 0;
-  errors = 0;
-  totalCards = signal<number>(0)
-
   readonly currentCard = computed(() => {
     return this.untestedCards()[0];
   });
+  readonly totalCards = signal<number>(0);
+
+  frontFacing = true;
+  completedCards = 0;
+  errors = 0;
 
   constructor() {
     effect(() => {
-      const fetchedCards = this.fetchedCards();
+      const fetchedCards = this.cardsResource.value();
       if (fetchedCards?.length) {
         this.untestedCards.set([...fetchedCards]);
-        this.totalCards.set(fetchedCards.length)
+        this.totalCards.set(fetchedCards.length);
       }
     });
+  }
+
+  onPartOfSpeechChange(event: Event): void {
+    this.selectedPartOfSpeech.set((event.target as HTMLSelectElement).value);
+  }
+
+  private isFormControlEvent(event: KeyboardEvent): boolean {
+    return event.target instanceof HTMLSelectElement;
   }
 
   @HostListener('window:keydown.space', ['$event'])
   handleSpaceKey(event: Event): void {
     const keyboardEvent = event as KeyboardEvent;
+    if (this.isFormControlEvent(keyboardEvent)) {
+      return;
+    }
     keyboardEvent.preventDefault();
     if (!keyboardEvent.repeat) {
       this.frontFacing = !this.frontFacing;
@@ -44,6 +62,9 @@ export class FooComponent {
   @HostListener('window:keydown.f', ['$event'])
   handlePassKey(event: Event): void {
     const keyboardEvent = event as KeyboardEvent;
+    if (this.isFormControlEvent(keyboardEvent)) {
+      return;
+    }
     keyboardEvent.preventDefault();
     if (!keyboardEvent.repeat) {
       this.advanceCard(false);
@@ -54,6 +75,9 @@ export class FooComponent {
   @HostListener('window:keydown.a', ['$event'])
   handleFailKey(event: Event): void {
     const keyboardEvent = event as KeyboardEvent;
+    if (this.isFormControlEvent(keyboardEvent)) {
+      return;
+    }
     keyboardEvent.preventDefault();
     if (!keyboardEvent.repeat) {
       this.advanceCard(true);

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
@@ -11,8 +11,16 @@ export class CardService {
   private readonly http = inject(HttpClient);
   private readonly apiUrl = 'http://localhost:3000/api/cards';
 
-  getCards(): Observable<Card[]> {
-    return this.http.get<Card[]>(this.apiUrl).pipe(map((cards) => this.shuffle(cards)));
+  getCards(partOfSpeech?: string): Observable<Card[]> {
+    let params = new HttpParams();
+    if (partOfSpeech) {
+      params = params.set('part_of_speech', partOfSpeech);
+    }
+    return this.http.get<Card[]>(this.apiUrl, { params }).pipe(map((cards) => this.shuffle(cards)));
+  }
+
+  getPartsOfSpeech(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:3000/api/parts_of_speech');
   }
 
   private shuffle<T>(items: T[]): T[] {

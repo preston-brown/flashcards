@@ -1,27 +1,6 @@
-import Fastify from "fastify";
-import cors from "@fastify/cors";
-import { readFile } from "node:fs/promises";
+import { buildApp } from "./app.js";
 
-import { Word, wordToCard } from "./models/word-card.js";
-
-const app = Fastify({
-  logger: true,
-});
-
-await app.register(cors, {
-  origin: "*",
-});
-
-const raw = await readFile(
-  new URL("../../scripts/data.json", import.meta.url),
-  "utf8",
-);
-const words: Word[] = JSON.parse(raw);
-
-app.get("/api/cards", async (request, reply) => {
-  return words.map(wordToCard);
-});
-
+const app = await buildApp();
 const port = Number(process.env.PORT ?? 3000);
 
 try {

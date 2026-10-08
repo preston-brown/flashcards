@@ -506,5 +506,23 @@
       "conjugation": 3,
       "definition": "to run away, flee"
     }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "preposition",
+    "details": {
+      "word": "versus",
+      "objectCase": "accusative",
+      "definition": "toward, in the direction of"
+    }
+  },
+  {
+    "chapter": 2,
+    "partOfSpeech": "preposition",
+    "details": {
+      "word": "contra",
+      "objectCase": "accusative",
+      "definition": "against"
+    }
   }
 ]
