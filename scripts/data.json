@@ -418,7 +418,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "verb",
     "details": {
       "part1": "pugno",
@@ -428,7 +428,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "verb",
     "details": {
       "part1": "incolo",
@@ -438,7 +438,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "verb",
     "details": {
       "part1": "divido",
@@ -448,7 +448,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "verb",
     "details": {
       "part1": "oppugno",
@@ -458,7 +458,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "verb",
     "details": {
       "part1": "metuo",
@@ -468,7 +468,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "verb",
     "details": {
       "part1": "defendo",
@@ -478,7 +478,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "verb",
     "details": {
       "part1": "iacio",
@@ -488,7 +488,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "verb",
     "details": {
       "part1": "expugno",
@@ -498,7 +498,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "verb",
     "details": {
       "part1": "fugio",
@@ -508,7 +508,7 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "preposition",
     "details": {
       "word": "versus",
@@ -517,12 +517,247 @@
     }
   },
   {
-    "chapter": 2,
+    "chapter": 12,
     "partOfSpeech": "preposition",
     "details": {
       "word": "contra",
       "objectCase": "accusative",
       "definition": "against"
+    }
+  },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "hora", "genitive": "horae", "declension": 1, "gender": "f", "definition": "hour" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "luna", "genitive": "lunae", "declension": 1, "gender": "f", "definition": "moon" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "stella", "genitive": "stellae", "declension": 1, "gender": "f", "definition": "star" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "forma", "genitive": "formae", "declension": 1, "gender": "f", "definition": "form; shape" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "kalenda", "genitive": "kalendae", "declension": 1, "gender": "f", "definition": "1st of the month" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "nona", "genitive": "nonae", "declension": 1, "gender": "f", "definition": "5th or 7th of the month" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "annus", "genitive": "anni", "declension": 2, "gender": "m", "definition": "year" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "saeculum", "genitive": "saeculi", "declension": 2, "gender": "n", "definition": "age; generation" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "vesper", "genitive": "vesperi", "declension": 2, "gender": "m", "definition": "evening" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "initium", "genitive": "initii", "declension": 2, "gender": "n", "definition": "beginning" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "aequinoctium", "genitive": "aequinoctii", "declension": 2, "gender": "n", "definition": "equinox" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "lacus", "genitive": "laci", "declension": 2, "gender": "m", "definition": "lake" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "mensis", "genitive": "mensis", "declension": 3, "gender": "m", "definition": "month" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "tempus", "genitive": "temporis", "declension": 3, "gender": "n", "definition": "time; season" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "nox", "genitive": "noctis", "declension": 3, "gender": "f", "definition": "night" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "lux", "genitive": "lucis", "declension": 3, "gender": "f", "definition": "light" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "aestas", "genitive": "aestatis", "declension": 3, "gender": "f", "definition": "summer" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "hiems", "genitive": "hiemis", "declension": 3, "gender": "f", "definition": "winter" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "ver", "genitive": "veris", "declension": 3, "gender": "n", "definition": "spring" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "imber", "genitive": "imbris", "declension": 3, "gender": "m", "definition": "rain; shower" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "nix", "genitive": "nivis", "declension": 3, "gender": "f", "definition": "snow" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "urbs", "genitive": "urbis", "declension": 3, "gender": "f", "definition": "city" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "idus", "genitive": "idus", "declension": 4, "gender": "f", "definition": "13th or 15th of the month" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "dies", "genitive": "diei", "declension": 5, "gender": "m", "definition": "day" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "facies", "genitive": "faciei", "declension": 5, "gender": "f", "definition": "face" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "meridies", "genitive": "meridiei", "declension": 5, "gender": "m", "definition": "noon" } },
+  { "chapter": 13, "partOfSpeech": "noun", "details": { "nominative": "glacies", "genitive": "glaciei", "declension": 5, "gender": "f", "definition": "ice" } },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "postremus",
+      "feminine": "postrema",
+      "neuter": "postremum",
+      "declension": 1,
+      "definition": "next; last"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "dimidius",
+      "feminine": "dimidia",
+      "neuter": "dimidium",
+      "declension": 1,
+      "definition": "half"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "aequus",
+      "feminine": "aequa",
+      "neuter": "aequum",
+      "declension": 1,
+      "definition": "equal"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "clarus",
+      "feminine": "clara",
+      "neuter": "clarum",
+      "declension": 1,
+      "definition": "clear, bright"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "totus",
+      "feminine": "tota",
+      "neuter": "totum",
+      "declension": 1,
+      "definition": "whole, all, entire"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "obscurus",
+      "feminine": "obscura",
+      "neuter": "obscurum",
+      "declension": 1,
+      "definition": "dark"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "exiguus",
+      "feminine": "exigua",
+      "neuter": "exiguum",
+      "declension": 1,
+      "definition": "small, meager"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "calidus",
+      "feminine": "calida",
+      "neuter": "calidum",
+      "declension": 1,
+      "definition": "warm, hot"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "frigidus",
+      "feminine": "frigida",
+      "neuter": "frigidum",
+      "declension": 1,
+      "definition": "cold, cool"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "adjective",
+    "details": {
+      "masculine": "indeclinabilis",
+      "feminine": "indeclinabilis",
+      "neuter": "indeclinabile",
+      "declension": 3,
+      "definition": "indeclinable"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "nomino",
+      "part2": "nominare",
+      "conjugation": 1,
+      "definition": "to name, nominate"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "illustro",
+      "part2": "illustrare",
+      "conjugation": 1,
+      "definition": "to light up"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "incipio",
+      "part2": "incipere",
+      "conjugation": 3,
+      "definition": "to begin"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "operio",
+      "part2": "operire",
+      "conjugation": 4,
+      "definition": "to cover"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "verb",
+    "details": {
+      "part1": "volo",
+      "part2": "velle",
+      "conjugation": 3,
+      "definition": "to want, to wish"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "other",
+    "details": {
+      "word": "vel",
+      "definition": "or"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "other",
+    "details": {
+      "word": "tunc",
+      "definition": "then"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "other",
+    "details": {
+      "word": "nunc",
+      "definition": "now"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "other",
+    "details": {
+      "word": "igitur",
+      "definition": "therefore"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "other",
+    "details": {
+      "word": "item",
+      "definition": "likewise, besides, also"
+    }
+  },
+  {
+    "chapter": 13,
+    "partOfSpeech": "other",
+    "details": {
+      "word": "quando",
+      "definition": "when"
     }
   }
 ]

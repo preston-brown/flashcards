@@ -19,16 +19,19 @@ export async function buildApp() {
   );
   const words: Word[] = JSON.parse(raw);
 
-  app.get<{ Querystring: { part_of_speech?: string } }>(
+  app.get<{ Querystring: {  chapter?: number,part_of_speech?: string, } }>(
     "/api/cards",
     {
       schema: {
         querystring: {
           type: "object",
           properties: {
+            chapter: {
+              type: "number",
+            },
             part_of_speech: {
               type: "string",
-              enum: ["noun", "verb", "adjective", "preposition"],
+              enum: ["noun", "verb", "adjective", "preposition", "other"],
             },
           },
         },
@@ -36,8 +39,10 @@ export async function buildApp() {
     },
     async (request, reply) => {
       const partOfSpeech = request.query.part_of_speech;
+      const chapter = request.query.chapter;
       return words
         .filter((word) => !partOfSpeech || word.partOfSpeech === partOfSpeech)
+        .filter((word) => !chapter || word.chapter === chapter)
         .map(wordToCard);
     },
   );
@@ -47,6 +52,13 @@ export async function buildApp() {
       new Set(words.map((word) => word.partOfSpeech)),
     );
     return partsOfSpeech;
+  });
+
+  app.get("/api/chapters", async (request, reply) => {
+    const chapters = Array.from(
+      new Set(words.map((word) => word.chapter)),
+    );
+    return chapters;
   });
 
   return app;

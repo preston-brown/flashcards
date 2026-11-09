@@ -1,5 +1,14 @@
-import { Component, computed, effect, HostListener, inject, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  linkedSignal,
+  HostListener,
+  inject,
+  signal,
+} from '@angular/core';
 import { rxResource, toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 
 import { CardService } from '../../services/card-service';
 import { Card } from '../../models/card';
@@ -14,33 +23,55 @@ export class FooComponent {
   readonly partsOfSpeech = toSignal(this.cardService.getPartsOfSpeech(), {
     initialValue: [] as string[],
   });
-  readonly selectedPartOfSpeech = signal<string>('');
-  readonly cardsResource = rxResource({
-    params: () => this.selectedPartOfSpeech(),
-    stream: ({ params }) => this.cardService.getCards(params),
+  readonly chapters = toSignal(this.cardService.getChapters(), {
+    initialValue: [] as number[],
   });
-  readonly untestedCards = signal<Card[]>([]);
+  readonly selectedPartOfSpeech = signal<string>('');
+  readonly selectedChapter = signal<number | null>(null);
+  readonly cardsResource = rxResource({
+    params: () => ({
+      partOfSpeech: this.selectedPartOfSpeech(),
+      chapter: this.selectedChapter(),
+    }),
+    stream: (context) => {
+      const partOfSpeech = context.params.partOfSpeech;
+      const chapter = context.params.chapter || undefined;
+      return this.cardService.getCards(chapter, partOfSpeech).pipe(map((cards) => this.shuffle(cards)));
+    },
+  });
   readonly currentCard = computed(() => {
     return this.untestedCards()[0];
   });
-  readonly totalCards = signal<number>(0);
+  readonly untestedCards = linkedSignal<Card[] | undefined, Card[]>({
+    source: () => this.cardsResource.value(),
+    computation: (cards) => [...(cards ?? [])],
+  });
+  readonly totalCards = computed(() => this.cardsResource.value()?.length ?? 0);
 
   frontFacing = true;
-  completedCards = 0;
-  errors = 0;
+  readonly completedCards = signal(0);
+  readonly errors = signal(0);
 
-  constructor() {
-    effect(() => {
-      const fetchedCards = this.cardsResource.value();
-      if (fetchedCards?.length) {
-        this.untestedCards.set([...fetchedCards]);
-        this.totalCards.set(fetchedCards.length);
-      }
-    });
+  onChapterChange(event: Event): void {
+    const value = (event.target as HTMLSelectElement).value;
+    this.selectedChapter.set(value === '' ? null : Number(value));
+    this.completedCards.set(0);
+    this.errors.set(0);
   }
 
   onPartOfSpeechChange(event: Event): void {
     this.selectedPartOfSpeech.set((event.target as HTMLSelectElement).value);
+    this.completedCards.set(0);
+    this.errors.set(0);
+  }
+
+  private shuffle<T>(items: T[]): T[] {
+    const copy = [...items];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
   }
 
   private isFormControlEvent(event: KeyboardEvent): boolean {
@@ -68,7 +99,7 @@ export class FooComponent {
     keyboardEvent.preventDefault();
     if (!keyboardEvent.repeat) {
       this.advanceCard(false);
-      this.completedCards += 1;
+      this.completedCards.set(this.completedCards() + 1);
     }
   }
 
@@ -81,7 +112,7 @@ export class FooComponent {
     keyboardEvent.preventDefault();
     if (!keyboardEvent.repeat) {
       this.advanceCard(true);
-      this.errors += 1;
+      this.errors.set(this.errors() + 1);
     }
   }
 

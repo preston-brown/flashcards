@@ -27,6 +27,11 @@ type PrepositionDetails = {
   definition: string;
 };
 
+type OtherDetails = {
+  word: string;
+  definition: string;
+};
+
 export type Word =
   | {
       chapter: number;
@@ -48,12 +53,17 @@ export type Word =
       partOfSpeech: "preposition";
       details: PrepositionDetails;
     }
+  | {
+      chapter: number;
+      partOfSpeech: "other";
+      details: OtherDetails;
+    }
 
 type Card = {
   id: string;
   front: string;
   back: string;
-  partOfSpeech: "noun" | "adjective" | "verb" | "preposition";
+  partOfSpeech: "noun" | "adjective" | "verb" | "preposition" | "other";
 };
 
 const conjugationNames = [
@@ -114,6 +124,14 @@ export const wordToCard = (word: Word): Card => {
       };
     }
 
+    case "other": {
+      return {
+        id: crypto.randomUUID(),
+        partOfSpeech: "other",
+        front: word.details.word,
+        back: word.details.definition,
+      };
+    }
 
     case "verb": {
       const forms = [word.details.part1, word.details.part2];
